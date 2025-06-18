@@ -1,33 +1,27 @@
-name: Generate Pacman Contribution Graph
+name: Generate Pacman Contributions
 
 on:
   schedule:
-    - cron: "0 */12 * * *"  # Executa a cada 12 horas
-  workflow_dispatch:         # Permite rodar manualmente
-  push:
-    branches:
-      - main                 # Roda ao fazer push na main
+    - cron: '0 0 * * *' # todo dia à meia-noite
+  workflow_dispatch:
 
 jobs:
   generate:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write        # Permissão para push
-    timeout-minutes: 5
-
+    name: Generate contribution graph
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Generate Pacman contribution graph
-        uses: abozanona/pacman-contribution-graph@main
+      - name: Generate the SVG
+        uses: yoshi389111/github-profile-3d-contrib@0.6.1
         with:
-          github_user_name: ${{ github.repository_owner }}
+          output_path: ./output
+          theme: PAC_MAN
 
-      - name: Push to output branch
-        uses: crazy-max/ghaction-github-pages@v3.1.0
-        with:
-          target_branch: output       # Branch onde o SVG será enviado
-          build_dir: dist             # Pasta onde o SVG foi salvo
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Push the SVG
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "generated"
+          git push
