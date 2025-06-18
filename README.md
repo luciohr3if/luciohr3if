@@ -60,9 +60,10 @@
 
 ###
 
-<div align="center">
-  <img src="https://streak-stats.demolab.com?user=luciohr3if&locale=en&mode=daily&theme=dark&hide_border=false&border_radius=5&order=3" height="220" alt="streak graph"  />
-</div>
+<p align="center">
+  <img src="https://streak-stats.demolab.com?user=luciohr3if&theme=github-dark&hide_border=false&border_radius=10&date_format=j%20M%5B%20Y%5D" alt="GitHub Streak" />
+</p>
+
 
 ###
 
