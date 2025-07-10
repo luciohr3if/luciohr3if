@@ -26,7 +26,7 @@
 
 ###
 
-<p align="left">💻 Passionate Web Developer  <br>📚 Lifelong Learner & Tech Enthusiast  <br>⚡ Future Full Stack Developer  <br>🎮 Gamer in my spare time</p>
+<p align="left">💻 Passionate Web Developer  <br>📚 Lifelong Learner  <br>⚡ Future Full Stack Developer  <br>🎮 Gamer in my spare time</p>
 
 ###
 
